@@ -1,0 +1,13 @@
+.env
+.coverage
+setup.cfg
+venv
+devenv
+.idea
+.pytest_cache
+.mypy_cache
+.git
+.gitingnore
+.github
+Dockerfile
+requirements.dev.txt

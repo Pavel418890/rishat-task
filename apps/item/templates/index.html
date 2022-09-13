@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Buy {{ item.name }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ item.name }}</h1>
+    <p>{{ item.description }}</p>
+    <p>{{ item.price }}</p>
+    <button id="buy-button">Buy</button>
+    <script type="text/javascript">
+        const STRIPE_PUBLIC_KEY = "pk_test_51KD2YhE16fGYLOhMgpOHKBXfZDiAJx1GAXicqgkShgTZDQJimi4RDabhiEJJt1TAsN2rBgbzVaL7CojpO4yjYdIt00wrdwP7zf"
+        const stripe = Stripe(STRIPE_PUBLIC_KEY);
+        const buyButton = document.getElementById("buy-button");
+        buyButton.addEventListener('click', () => {
+            // Create a new Checkout Session using the server-side endpoint
+            // Redirect to Stripe Session Checkout
+
+            fetch('/buy/{{ item.id }}', {method: 'GET'})
+                .then(response => response.json())
+                .then(session => stripe.redirectToCheckout({sessionId: session.id}))
+        });
+    </script>
+
+
+{% endblock %}
