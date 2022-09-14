@@ -1,6 +1,19 @@
 # Rishat Task
 https://rishat-task.herokuapp.com/item/1
 
+email: user@test.com
+
+card: 4242 4242 4242 4242
+
+expire: 04/40
+
+cvv/cvc: 424
+
+https://rishat-task.herokuapp.com/admin
+
+username: admin
+password: admin
+
 # Запуск локально
 ```shell
 docker build -t rishat_task .
@@ -18,6 +31,7 @@ rishat_task:latest
 # Деплой в heroku
 Реализован CI/CD github flow с запуском линтеров и тестов c автоматическим
 деплоем в heroku после commit в `master` ветку.
+
 
 
 
